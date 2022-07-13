@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
 </head>
 <body>
+<span sec:authentication="name">Bob</span>
+<form th:if="${#authentication.getPrincipal() != null}" method="post" id="#logoutForm" th:action="@{/logout}">
+    <input th:type="hidden"
+           th:name="${_csrf.parameterName}"
+           th:value="${_csrf.token}" />
+    <button type="submit">Logout</button>
+</form>
+<p th:text="Welcome "></a></p>
 <div th:text="${message}"></div>
 <p><a th:href="@{/user/list}">User List</a></p>
 <p><a th:href="@{/user/form}">Add User</a></p>
