@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<form method="post" th:action="@{/user/add}" th:object="${userForm}">
+    <input th:type="hidden" th:field="*{id}" />
+    <p>User Id: <input th:field="*{userId}" placeholder="Enter User Id"/></p>
+    <p>User Name: <input th:field="*{userName}" placeholder="Enter User Name"/></p>
+    <p>Password: <input th:field="*{password}" placeholder="Enter Password"/></p>
+    <p>Role:
+        <select id="role" name="role" th:field="*{role}">
+            <option th:text="${role.name}" th:value="${role.id}" th:each="role : ${roles}"></option>
+        </select>
+    </p>
+    <p>
+        <button>Save</button>
+    </p>
+    <a th:href="@{/user/list}">List User</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Address</title>
+</head>
+<body>
+<form method="post" th:action="@{/address/add}" th:object="${addressForm}">
+    <input th:type="hidden" th:field="*{id}" />
+    <p>Country: <input th:field="*{country}" placeholder="Enter Country"/></p>
+    <p>State: <input th:field="*{state}" placeholder="Enter State"/></p>
+    <p>City: <input th:field="*{city}" placeholder="Enter City"/></p>
+    <p>User:
+        <select id="user" name="user" th:field="*{user}">
+            <option th:text="${user.userName}" th:value="${user.id}" th:each="user : ${users}"></option>
+        </select>
+    </p>
+    <p>
+        <button>Save</button>
+    </p>
+    <a th:href="@{/address/list}">List Address</a>
+</form>
+</body>
+</html>

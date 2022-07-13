@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+</head>
+<body>
+  <p th:text="${message}"></p>
+  <p><a th:href="@{/user/list}">User List</a></p>
+  <p><a th:href="@{/user/form}">Add User</a></p>
+  <p><a th:href="@{/address/list}">Address List</a>
+  <p><a th:href="@{/address/form}">Add Address</a></p>
+</body>
+</html>
